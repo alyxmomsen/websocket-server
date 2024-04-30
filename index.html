@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="click-button" >click</button>
+    <div>
+        <input id="display-input" value="000" type="text" readonly />
+    </div>
+</body>
+</html>
+<script>
+
+const ws = new WebSocket('ws://localhost:9001');
+const button = document.getElementById('click-button');
+
+ws.onmessage = ((message) => {
+    console.log(JSON.parse(message.data));
+}) ;
+
+
+
+button.onclick = () => {
+    const input = document.getElementById('display-input');
+    input.value = 'hello' ;
+}
+
+</script>
