@@ -21,6 +21,8 @@ const io = new Server(server , {
 
 io.on("connection" , (socket) => {
 
+    console.log('it s connection');
+
     socket.on('message' , (message) => {
 
         console.log(message);
